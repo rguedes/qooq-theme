@@ -1,0 +1,58 @@
+<?php
+ /*
+ * @var $block \Credevlabz\Testimonials\Block\TestimonialsList 
+ * @package Credevlabz/Testimonials
+ * @author Aman Srivastava <http://amansrivastava.in>
+ */ 
+?>
+<section class="home-testimonials container">
+    <h2 class="text-center"><span><?php /* @escapeNotVerified */ echo __('ils aiment QOOQ') ?></span>
+        <br><?php /* @escapeNotVerified */ echo __('et vous expliquent pourquoi') ?></h2>
+
+    <div class="row testimonials-post-list clearfix hidden-xs">
+        <?php /** @var $testimonial \Credevlabz\Testimonials\Model\Testimonial */ ?>
+        <?php foreach ($block->getTestimonials() as $key => $testimonial): ?>
+            <a href="<?php echo $this->getUrl('testimonials');?>#testimonials_section_<?php echo $key;?>" class="col-sm-4">
+                <div class="bg-cover" style="background-image: url('<?php echo "/pub/media/".$testimonial->getImage(); ?>')"></div>
+                <h3><?php echo $testimonial->getTitle(); ?></h3>
+                <span><?php /* @escapeNotVerified */ echo __('En savoir plus') ?></span>
+            </a>
+        <?php endforeach; ?>
+    </div>
+
+    <div id="carousel-testimonials" class="carousel slide visible-xs" data-ride="carousel">
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner testimonials-post-list" role="listbox">
+            <?php $first = true; ?>
+            <?php foreach ($block->getTestimonials() as $key => $testimonial): ?>
+                <?php if($first) { $class = 'active'; $first = false; }else{$class = '';} ?>
+                <div class="item <?php echo $class;?>">
+                    <img class="col-xs-10 col-xs-offset-1 col-sm-offset-0" src="<?php echo "/pub/media/".$testimonial->getImage(); ?>"/>
+                    <a class="col-xs-10 col-xs-offset-1 col-sm-offset-0" href="<?php echo $this->getUrl('testimonials');?>#testimonials_section_<?php echo $key;?>">
+                        <h3><?php echo $testimonial->getTitle(); ?></h3>
+                        <span><?php /* @escapeNotVerified */ echo __('En savoir plus') ?></span>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+
+        <!-- Controls -->
+        <div class="carousel-arrows">
+            <a class="left carousel-control" href="#carousel-testimonials" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only"><?php /* @escapeNotVerified */ echo __('Previous') ?></span>
+            </a>
+            <a class="right carousel-control" href="#carousel-testimonials" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only"><?php /* @escapeNotVerified */ echo __('Next') ?></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-xs-12 text-center">
+        <a href="tablette/tablett-qooq-v4.html" class="red-button">
+            <?php /* @escapeNotVerified */ echo __('acheter QOOQ') ?>
+        </a>
+    </div>
+</section>
+

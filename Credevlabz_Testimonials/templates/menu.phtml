@@ -1,0 +1,14 @@
+<div class="sub-menu visible-lg">
+    <div class="container">
+        <ul class="row">
+            <?php foreach ($block->getTestimonials() as $key => $testimonial): ?>
+                <li>
+                    <a href="#testimonials_section_<?php echo $key;?>"><?php echo $testimonial->getTitle(); ?></a>
+                </li>
+            <?php endforeach; ?>
+            <li>
+                <a href="#testimonials_section_videos"><?php /* @escapeNotVerified */ echo __('Ils parlent de QOOQ') ?></a>
+            </li>
+        </ul>
+    </div>
+</div>

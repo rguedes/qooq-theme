@@ -1,0 +1,128 @@
+*, :after, :before {
+  box-sizing: border-box;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Raleway';
+  font-weight: normal;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 330px;
+}
+img {
+  max-width: 100%;
+}
+ol,
+ul {
+  padding: 0;
+  margin-bottom: 0;
+}
+ul li {
+  list-style: none;
+}
+a:hover {
+  text-decoration: none;
+}
+h2 {
+  font-weight: 500;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+h2 span {
+  color: @color-red;
+}
+section {
+  position: relative;
+}
+form input {
+  height: 42px;
+  margin-bottom: 26px;
+  border: 1px solid #E1E1E1;
+  padding: 10px;
+  width: 100%;
+}
+form input[type=checkbox],
+form input[type=radio] {
+  height: 22px;
+}
+
+.bg-cover {
+  position: absolute;
+  z-index: -9;
+  top: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+}
+.bg-cover.all-width {
+  width: 100%;
+}
+
+.bg-cover.bg-right {
+  right: 0;
+  width: 50%;
+}
+.bg-cover.bg-left {
+  left: 0;
+  width: 50%;
+}
+.bg-grey {
+  background: #E1E1E1;
+}
+form input.red-button {
+  width: auto;
+  border: 0;
+  padding: inherit;
+  margin-bottom: 0;
+  background: @color-red;
+}
+/*
+a.light-grey-button {
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    color: @color-red;
+    text-decoration: none;
+  }
+}
+a.red-button {
+  &:hover,
+  &:focus,
+  &:active,
+  &:visited {
+    color: @color-white;
+    text-decoration: none;
+  }
+}*/
+
+.columns .column.main {
+  padding-bottom:0;
+}
+
+.action.primary {
+  background: @color-red;
+  border: 1px solid @color-red;
+  color: #FFFFFF;
+}
+
+.action.primary:hover {
+  background: #e2e2e2;
+  color: @color-red;
+  border: 1px solid #e2e2e2;
+}
+
+.modal-content {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
+}
+
+.modal-popup .modal-header, .modal-popup .modal-content, .modal-popup .modal-footer {
+  padding: 3rem;
+}

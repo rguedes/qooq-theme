@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Header -->
+        <referenceContainer name="header.panel.wrapper" remove="true"/>
+        <referenceContainer name="navigation.sections" remove="true"/>
+        <referenceBlock name="report.bugs" remove="true"/>
+        <referenceBlock name="top.search" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="catalog.compare.link" remove="true"/>
+        <referenceBlock name="view.addto.compare" remove="true" />
+        <referenceBlock name="store.settings" remove="true"/>
+        <referenceBlock name="breadcrumbs" remove="true"/>
+        <move element="custom.topnav" destination="store.menu" after=""/>
+        <referenceContainer name="header.container" htmlTag="header" htmlClass="page-header navbar-fixed-top"/>
+
+        <referenceContainer name="header-wrapper">
+            <block class="Scandiweb\Menumanager\Block\Menu" name="custom.navigation" template="html/menu.phtml" after="logo" ttl="3600">
+                <arguments>
+                    <argument name="identifier" xsi:type="string">top-menu</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+
+        <!-- Footer -->
+        <referenceBlock name="form.subscribe" remove="true"/>
+        <referenceBlock name="footer_links" remove="true"/>
+        <referenceBlock name="copyright" remove="true"/>
+        <referenceContainer name="page.wrapper">
+            <container name="footer.info.container" as="footer_info_container" label="Info Before Page Footer Container" before="footer" htmlTag="div" htmlClass="info-wrapper footer-red text-center">
+                <block class="Magento\Cms\Block\Block" name="info">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">info</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="footer-container" htmlClass="footer-grey"/>
+
+        <referenceContainer name="footer" htmlClass="container">
+            <container name="footer-lang-mobile" htmlClass="visible-xs" htmlTag="div" before="footer.navigation.second">
+                <block class="Magento\Store\Block\Switcher" name="store_language_mobile" template="switch/languages.phtml"/>
+                <block class="Magento\Directory\Block\Currency" name="currency_mobile" after="store_language_mobile" template="currency.phtml"/>
+            </container>
+
+
+            <block class="Magento\Framework\View\Element\Template" name="footer_logo" template="Magento_Theme::html/footer/logo.phtml"/>
+            <container htmlTag="div" htmlClass="col-sm-5 col-md-4 hidden-xs"  name="footer.navigation.first" after="footer_logo">
+                <block class="Scandiweb\Menumanager\Block\Menu" template="Magento_Theme::html/footer/menu.phtml" ttl="3600">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">footer-left</argument>
+                        <argument name="columns_limit" xsi:type="number">2</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container htmlTag="div" htmlClass="col-sm-5 col-md-4" name="footer.navigation.second">
+                <block class="Scandiweb\Menumanager\Block\Menu" template="Magento_Theme::html/footer/menu.phtml" after="footer.navigation.first" ttl="3600">
+                    <arguments>
+                        <argument name="identifier" xsi:type="string">footer-center</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="footer.info.container.social" as="footer_info_container_social" htmlTag="div" htmlClass="col-sm-10 col-sm-offset-2 col-md-offset-0 col-md-2 suivez-nous" after="footer.navigation.second">
+                <block class="Magento\Cms\Block\Block" name="social">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">social</argument>
+                    </arguments>
+                </block>
+                <container name="footer.info.container.lang" as="footer_info_container_lang" htmlTag="div" htmlClass="choose-lang hidden-xs" after="social">
+                    <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="switch/languages.phtml"/>
+                    <block class="Magento\Directory\Block\Currency" name="currency" after="store_language" template="currency.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+        <!-- Product Page -->
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.review.form" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+    </body>
+</page>

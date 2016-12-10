@@ -1,0 +1,55 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')):?>
+    <?php $layout = $block->getLayout(); ?>
+
+    <div class="container">
+        <div class="col-sm-12">
+            <div class="tabs-content">
+                    <!-- Nav tabs -->
+                <ul class="nav tab-titles hidden-xs" role="tablist" id="tab-titles">
+                    <?php foreach ($detailedInfoGroup as $key => $name):?>
+                        <?php
+                        $html = $layout->renderElement($name);
+                        if (!trim($html)) {
+                            continue;
+                        }
+                        $alias = $layout->getElementAlias($name);
+                        $label = $block->getChildData($alias, 'title');
+                        $class = $key == 0 ? "active" : '';
+                        ?>
+                        <li role="presentation" class="<?php echo $class;?>">
+                            <a href="#<?php /* @escapeNotVerified */ echo $alias;?>" aria-controls="<?php /* @escapeNotVerified */ echo $alias;?>" role="tab" data-toggle="tab"><?php echo $label; ?>
+                            </a>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <?php foreach ($detailedInfoGroup as $key => $name):?>
+                        <?php
+                        $html = $layout->renderElement($name);
+                        if (!trim($html)) {
+                            continue;
+                        }
+                        $alias = $layout->getElementAlias($name);
+                        $label = $block->getChildData($alias, 'title');
+                        $class = $key == 0 ? " active" : '';
+                        ?>
+                        <div role="tabpanel" class="tab-pane<?php echo $class;?>" id="#<?php /* @escapeNotVerified */ echo $alias;?>">
+                            <?php /* @escapeNotVerified */ echo $html; ?>
+                        </div>
+                    <?php endforeach;?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

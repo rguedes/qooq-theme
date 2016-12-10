@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * Magestore
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Magestore
+ * @package     Magestore_Bannerslider
+ * @copyright   Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license     http://www.magestore.com/license-agreement.html
+ */
+
+?>
+<?php
+$styleSlide= $block->getSlider()->getStyleSlide();
+$slider = $block->getSlider();
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Magestore_Bannerslider::css/slider'.$styleSlide.'.css')?>">
+<link rel="stylesheet" type="text/css" href="<?php echo $block->getViewFileUrl('Magestore_Bannerslider::css/custom.css')?>">
+<script type="text/javascript">
+
+</script>
+
+<div class="banner magestore-bannerslider-evolution-slider-<?php echo $slider->getId(); ?>" style="margin:auto; max-width: <?php echo $slider->getWidth() ?>px; max-height: <?php echo $slider->getHeight() ?>px;">
+    <?php foreach ($block->getBannerCollection() as $banner) :
+    ?>
+        <div class="bg-banner" style="background-image: url('<?php echo $block->getBannerImageUrl($banner) ?>')"></div>
+        <?php if($banner->getCaption()): ?>
+            <div class="slider-caption">
+                <div class="container">
+                    <div class="col-md-6 col-md-offset-6">
+                                <?php echo $banner->getCaption(); ?>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php endforeach ?>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @package Credevlabz/Testimonials
+ * @author Aman Srivastava <http://amansrivastava.in>
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="main.content" htmlClass="container-full"/>
+        <referenceContainer name="content">
+            <block class="Credevlabz\Testimonials\Block\TestimonialsMenu" name="testimonials.list.menu" template="Credevlabz_Testimonials::menu.phtml"/>
+            <block class="Magestore\Bannerslider\Block\SliderItem" name="testimonials.banner" after="testimonials.list.menu">
+                <action method="setSliderId">
+                    <argument name="sliderId" xsi:type="string">4</argument>
+                </action>
+            </block>
+            <block class="Credevlabz\Testimonials\Block\TestimonialsList" name="testimonials.list" after="testimonials.banner" template="Credevlabz_Testimonials::list.phtml" />
+            <container name="testimonials.videos.wrapper" htmlClass="testimonials" htmlTag="div" after="testimonials.list">
+                <block class="Magento\Cms\Block\Block" name="testimonials.videos">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">testimonials-videos</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,42 @@
+.light-grey-button {
+  .button(@bg-color: #E1E1E1; @text-color: @color-red;);
+}
+.red-button {
+  .button(@bg-color: @color-red; @text-color: @color-white;);
+  a {
+    &
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color: @color-white;
+      text-decoration: none;
+    }
+  }
+}
+
+
+a.light-grey-button {
+
+  &:focus,
+  &:active,
+  &:visited {
+    color: @color-red;
+    text-decoration: none;
+  }
+  &:hover {
+    color: @color-white;
+    background: @color-red;
+  }
+}
+a.red-button {
+  &:focus,
+  &:active,
+  &:visited {
+    color: @color-white;
+    text-decoration: none;
+  }
+  &:hover {
+    color: @color-red;
+  }
+}

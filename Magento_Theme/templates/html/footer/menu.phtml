@@ -1,0 +1,22 @@
+<?php
+/**
+ * @author Dmitrijs Sitovs <info@scandiweb.com / dmitrijssh@scandiweb.com / dsitovs@gmail.com>
+ * @copyright Copyright (c) 2015 Scandiweb, Ltd (http://scandiweb.com)
+ * @license http://opensource.org/licenses/afl-3.0.php Academic Free License (AFL 3.0)
+ */
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @var $block \Scandiweb\Menumanager\Block\Menu
+ */
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ? $block->getColumnsLimit() : 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', 2) ?>
+
+<ul data-mage-init='{"menu":{"responsive":true, "expanded":false, "position":{"my":"left top","at":"left bottom"}}}'>
+    <?php /* @escapeNotVerified */ echo $_menu; ?>
+</ul>

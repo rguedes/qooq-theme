@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<!-- Show Attribute -->
+<!--<block class="Magento\Swatches\Block\Product\Renderer\Configurable" name="product.info.options.swatches" as="swatch_options" before="product.info.price" />-->
+<!-- <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.color" template="product/view/attribute.phtml" group="detailed_info" before="product.info.price">
+     <arguments>
+         <argument name="at_call" xsi:type="string">getColor</argument>
+         <argument name="at_code" xsi:type="string">color</argument>
+         <argument name="css_class" xsi:type="string">overview</argument>
+         <argument name="at_label" translate="true" xsi:type="string">none</argument>
+         <argument name="title" translate="true" xsi:type="string">Overview</argument>
+         <argument name="add_attribute" xsi:type="string">itemprop="description"</argument>
+     </arguments>
+ </block>-->
+
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--<referenceContainer name="main.content" htmlClass="container-full"/>-->
+        <referenceContainer name="content">
+            <referenceContainer name="product.info.stock.sku" remove="true"/>
+            <!--<referenceContainer name="product.info.form.content" remove="true"/>
+            <referenceBlock name="product.info.review" remove="true"/>-->
+            <!--<container name="product.info.more.detail" after="product.info.media" htmlTag="section" htmlClass="more-product-details"/>
+            <referenceContainer name="product.info.main" htmlTag="section" htmlClass="container product-details"/>-->
+        </referenceContainer>
+        <referenceContainer name="product.info.main" htmlTag="div" htmlClass="product-info-main col-sm-offset-1 col-sm-5">
+            <block class="Venture\Qooq\Block\Catalog\Swatch" name="product.info.color" template="Venture_Qooq::product/view/swatch.phtml" after="product.info.price">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getColor</argument>
+                    <argument name="at_code" xsi:type="string">color</argument>
+                    <argument name="css_class" xsi:type="string">colors clearfix</argument>
+                    <argument name="at_label" translate="true" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Color</argument>
+                    <argument name="add_attribute" xsi:type="string">itemprop="color"</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="main.content">
+            <container name="main.content.details" htmlClass="more-product-details" htmlTag="section" after="columns"/>
+        </referenceContainer>
+
+        <referenceBlock name="catalog.product.related">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Venture_Qooq::product/list/items.phtml</argument>
+            </action>
+        </referenceBlock>
+        <!--<move element="product.price.final" destination="product.info.form.options" before="product.info.options.wrapper.bottom"/>-->
+        <!--<move element="product.info.details" destination="product.info.more.detail"/>-->
+
+        <!--column container product-details-->
+        <move element="page.main.title" destination="product.info.main" before="product.info.price"/>
+        <move element="product.info.details" destination="main.content.details"/>
+        <move element="catalog.product.related" destination="main.content" after="main.content.details"/>
+        <referenceContainer name="columns" htmlClass="container product-details" htmlTag="div"/>
+        <referenceContainer name="main.content" htmlClass="container-full" htmlTag="main"/>
+        <referenceBlock name="product.info.details">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.product_specifications" template="product/view/attribute.phtml" group="detailed_info" after="product.info.description">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getProductSpecifications</argument>
+                    <argument name="at_code" xsi:type="string">product_specifications</argument>
+                    <argument name="css_class" xsi:type="string">product_specifications</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="title" translate="true" xsi:type="string">Product Specifications</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>
