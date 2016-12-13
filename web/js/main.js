@@ -28,4 +28,8 @@ requirejs(['jquery', 'jquery.bootstrap', 'fancybox','lightslider'], function (jQ
             }
         ]
     });
+    jQuery('.hamburger-menu').on('click', function(){
+        jQuery('.bar').toggleClass('animate');
+        jQuery('.navigation').toggle();
+    });
 });

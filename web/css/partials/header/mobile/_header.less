@@ -1,5 +1,5 @@
 #maincontent {
-  margin-top: 114px;
+  margin-top: 70px;
 }
 
 .page-header {
@@ -9,13 +9,49 @@
   background: @color-white;
   z-index: 999;*/
   margin-top: 0;
+  padding-bottom: 0;
   .header{
+    padding: 0 20px 0 20px;
     .navigation {
+      position: absolute;
+      width: 100%;
       display: none;
+      background: #fff;
+      margin-left: -20px;
+      top: 55px;
+      .level0 {
+        border-top: 0;
+      }
+      ul {
+        width: 100%;
+        li {
+          margin-right: 0;
+          a {
+            span {
+              font-weight: 400;
+            }
+          }
+        }
+        li.last {
+          display: none;
+        }
+      }
     }
-    .logo img {
-      width: 50px;
-      margin: 10px 0;
+    .logo {
+      margin:0;
+      img {
+        width: 50px;
+        margin: 10px 0;
+        display: inline-block;
+      }
+    }
+    .minicart-wrapper {
+      margin-right: 0;
+      .action.showcart {
+        .text {
+          display: none;
+        }
+      }
     }
   }
 }
@@ -147,3 +183,4 @@
     }
   }
 }
+
