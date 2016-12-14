@@ -8,7 +8,7 @@ requirejs(['jquery', 'jquery.bootstrap', 'fancybox','lightslider'], function (jQ
     };
     jQuery(".iframe").fancybox(fancyboxOptions);
     jQuery(".iframe-video").fancybox(fancyboxOptions);
-    jQuery("#lightSlider").lightSlider({
+    /*jQuery("#lightSlider").lightSlider({
         item: 4,
         pager: false, addClass: 'carousel-list',
         prevHtml: '<span class="glyphicon glyphicon-chevron-left"></span>',
@@ -27,7 +27,25 @@ requirejs(['jquery', 'jquery.bootstrap', 'fancybox','lightslider'], function (jQ
                 }
             }
         ]
+    });*/
+
+    jQuery('.carousel[data-type="multi"] .item').each(function(){
+        var next = jQuery(this).next();
+        if (!next.length) {
+            next = jQuery(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo(jQuery(this));
+
+        for (var i=0;i<2;i++) {
+            next=next.next();
+            if (!next.length) {
+                next = jQuery(this).siblings(':first');
+            }
+
+            next.children(':first-child').clone().appendTo(jQuery(this));
+        }
     });
+
     jQuery('.hamburger-menu').on('click', function(){
         jQuery('.bar').toggleClass('animate');
         jQuery('.navigation').toggle();
