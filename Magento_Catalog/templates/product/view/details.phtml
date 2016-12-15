@@ -14,7 +14,7 @@
         <div class="col-sm-12">
             <div class="tabs-content">
                     <!-- Nav tabs -->
-                <ul class="nav tab-titles hidden-xs" role="tablist" id="tab-titles">
+                <ul class="nav nav-tabs tab-titles hidden-xs" role="tablist" id="tab-titles">
                     <?php foreach ($detailedInfoGroup as $key => $name):?>
                         <?php
                         $html = $layout->renderElement($name);
@@ -26,7 +26,7 @@
                         $class = $key == 0 ? "active" : '';
                         ?>
                         <li role="presentation" class="<?php echo $class;?>">
-                            <a href="#<?php /* @escapeNotVerified */ echo $alias;?>" aria-controls="<?php /* @escapeNotVerified */ echo $alias;?>" role="tab" data-toggle="tab"><?php echo $label; ?>
+                            <a href="#<?php /* @escapeNotVerified */ echo $key;?>" data-toggle="tab"><?php echo $label; ?>
                             </a>
                         </li>
                     <?php endforeach;?>
@@ -44,7 +44,7 @@
                         $label = $block->getChildData($alias, 'title');
                         $class = $key == 0 ? " active" : '';
                         ?>
-                        <div role="tabpanel" class="tab-pane<?php echo $class;?>" id="#<?php /* @escapeNotVerified */ echo $alias;?>">
+                        <div class="tab-pane <?php echo $class;?> fade in" id="<?php /* @escapeNotVerified */ echo $key;?>">
                             <?php /* @escapeNotVerified */ echo $html; ?>
                         </div>
                     <?php endforeach;?>
