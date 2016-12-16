@@ -19,6 +19,7 @@ var config = {
         '*': {
             'Magento_Checkout/template/minicart/content.html':'Venture_Qooq/template/minicart/content.html',
             'Magento_Checkout/template/minicart/item/default.html':'Venture_Qooq/template/minicart/item/default.html',
+            'Magento_Checkout/template/registration.html':'Venture_Qooq/template/registration.html',
 
             'Magento_Ui/template/form/element/input.html':'Venture_Qooq/template/form/element/input.html',
 
