@@ -17,6 +17,9 @@
         <referenceBlock name="view.addto.compare" remove="true" />
         <referenceBlock name="store.settings" remove="true"/>
         <referenceBlock name="breadcrumbs" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.simple.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.default.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.crosssell" remove="true"/>
         <move element="custom.topnav" destination="store.menu" after=""/>
         <referenceContainer name="header.container" htmlTag="header" htmlClass="page-header navbar-fixed-top"/>
 

@@ -216,6 +216,43 @@ form input {
       display: none;
     }
   }
+  .fieldset > .field.required > .label:after, .fieldset > .fields > .field.required > .label:after, .fieldset > .field._required > .label:after, .fieldset > .fields > .field._required > .label:after {
+    display: none;
+  }
+  .iwd-checkout-step-shipping .form-shipping-address fieldset.street {
+    margin: -2px 0 0 0 !important;
+  }
+  .iwd-checkout-step-shipping .form-shipping-address div[name="shippingAddress.company"],
+  .iwd-checkout-step-shipping .form-shipping-address div[name="shippingAddress.lastname"],
+  form.form-shipping-address div#shipping-new-address-form .field
+  {
+    margin: 0 !important;
+  }
+  .billing-address-same-as-shipping-block, .checkout-agreement{
+    margin-bottom: 5px;
+    label {
+      span{
+        color: @color-black;
+      }
+    }
+    input[type=checkbox]{
+      border: 2px solid #B0181A;
+      -webkit-appearance: none;
+      padding: 2px 7px 0 7px;
+      width: 25px !important;
+      display: inline-flex !important;
+      height: 25px !important;
+      content: " ";
+      &:checked:before{
+        content: "x";
+        font-weight: 700;
+        color: #b0181a;
+      }
+      &:focus{
+        outline: none;
+      }
+    }
+  }
 }
 
 .mark, mark {
@@ -225,4 +262,74 @@ form input {
 .billing-address-same-as-shipping-block form input[type=checkbox]{
   display: inline;
   width: inherit;
+}
+
+.checkout-cart-index {
+  button.checkout{
+    text-transform: uppercase;
+  }
+  #maincontent {
+    margin-top: 164px;
+  }
+  .cart.table-wrapper .remove {
+    padding-top: 11px;
+  }
+  #shopping-cart-table {
+    .item-info {
+      .item{
+        border-top: 0;
+      }
+    }
+    .remove {
+      a{
+        color: @color-black;
+        span:before {
+          font-size: 34px;
+        }
+      }
+    }
+  }
+  .rate .item-options {
+      label {
+        font-size: 13px;
+        padding-left: 0;
+      }
+      input {
+        cursor: pointer;
+        display: inline-block;
+        height: 15px;
+        margin-right: 15px;
+        position: relative;
+        width: 10px;
+        -webkit-appearance: none;
+        border-radius: 10px;
+        &:focus {
+          outline: none;
+        }
+        &:before {
+          position: absolute;
+          content: ' ';
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: @color-red;
+          opacity: 0;
+          top: 2px;
+          left: 6px;
+        }
+        &:after {
+          position: absolute;
+          content: ' ';
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          border: 2px solid @color-red;
+          left: -1px;
+          top: -5px;
+        }
+        &:checked:before {
+          opacity: 1;
+        }
+      }
+  }
 }

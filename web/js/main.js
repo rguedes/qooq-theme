@@ -29,6 +29,12 @@ requirejs(['jquery', 'jquery.bootstrap', 'fancybox','lightslider'], function (jQ
         ]
     });*/
 
+    jQuery('a[data-toggle="tooltip"]').tooltip({
+        animated: 'fade',
+        placement: 'bottom',
+        html: true
+    });
+
     jQuery('.carousel[data-type="multi"] .item').each(function(){
         var next = jQuery(this).next();
         if (!next.length) {
