@@ -22,6 +22,7 @@ var config = {
             'Magento_Checkout/template/registration.html':'Venture_Qooq/template/registration.html',
 
             'Magento_Ui/template/form/element/input.html':'Venture_Qooq/template/form/element/input.html',
+            'Magento_CheckoutAgreements/template/checkout/checkout-agreements.html':'Venture_Qooq/template/checkout/checkout-agreements.html',
 
             'Magento_Checkout/template/form/element/email.html':'Venture_Qooq/template/form/element/email.html',
             'Magento_Checkout/template/shipping-address/form.html':'Venture_Qooq/template/checkout/shipping-address/form.html'

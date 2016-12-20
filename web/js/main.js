@@ -56,4 +56,15 @@ requirejs(['jquery', 'jquery.bootstrap', 'fancybox','lightslider'], function (jQ
         jQuery('.bar').toggleClass('animate');
         jQuery('.navigation').toggle();
     });
+
+    // opens all tabs down to the specified tab
+    var hash = location.hash.split('?')[0];
+    if(hash) {
+        var $link = jQuery('[href=' + hash + ']');
+        var parents = $link.parents('.tab-pane').get();
+        jQuery(parents.reverse()).each(function() {
+            jQuery('[href=#' + this.id + ']').tab('show') ;
+        });
+        $link.tab('show');
+    }
 });

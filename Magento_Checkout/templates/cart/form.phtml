@@ -38,7 +38,7 @@
     </div>
     <div class="cart main actions">
         <?php if ($block->getContinueShoppingUrl()): ?>
-            <a class="action continue light-grey-button"
+            <a class="continue light-grey-button"
                href="<?php echo $block->escapeUrl($block->getContinueShoppingUrl()) ?>"
                title="<?php echo $block->escapeHtml(__('Continue Shopping')); ?>">
                 <span><?php /* @escapeNotVerified */ echo __('Continue Shopping') ?></span>
@@ -49,7 +49,7 @@
                 data-cart-item-update=""
                 value="update_qty"
                 title="<?php echo $block->escapeHtml(__('Update Shopping Cart')); ?>"
-                class="action update">
+                class="action update light-grey-button">
             <span><?php /* @escapeNotVerified */ echo __('Update Shopping Cart'); ?></span>
         </button>
         <input type="hidden" value="" id="update_cart_action_container" data-cart-item-update=""/>
