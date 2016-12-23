@@ -234,7 +234,12 @@ form input {
     margin: 0 !important;
   }
   .billing-address-same-as-shipping-block, .checkout-agreement{
-    margin-bottom: 5px;
+    margin-bottom: 0;
+    button, button:hover {
+      background: none;
+      border: 0;
+      padding: 7px 3px;
+    }
     label {
       span{
         color: @color-black;
@@ -243,7 +248,7 @@ form input {
     input[type=checkbox]{
       border: 2px solid #B0181A;
       -webkit-appearance: none;
-      padding: 2px 7px 0 7px;
+      padding: 0px 7px 0 7px;
       width: 25px !important;
       display: inline-flex !important;
       height: 25px !important;
@@ -256,6 +261,75 @@ form input {
       &:focus{
         outline: none;
       }
+    }
+  }
+
+  .checkout-review {
+    width: 33.3333%;
+  }
+  .opc-block-summary, .mark {
+    background: none;
+  }
+  .minicart-items .product-item {
+    min-height: auto;
+    padding-bottom: 0;
+  }
+  .minicart-items .product-item-details {
+    padding-left: 0;
+  }
+  .items-in-cart {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .discount-code {
+    margin-bottom: 7px;
+  }
+  .form-discount{
+    .payment-option-inner {
+      margin-top: 15px;
+      display: inline-block;
+      .input-text {
+        background: none;
+        border: 1px solid #E1E1E1;
+        height: 35px;
+      }
+    }
+    .actions-toolbar {
+      display:inline-block;
+    }
+  }
+  .payment-option span.action-toggle{
+    &:before {
+      border: 2px solid #B0181A;
+      -webkit-appearance: none;
+      padding: 2px 7px 0 7px;
+      width: 25px !important;
+      display: inline-flex !important;
+      height: 25px !important;
+      content: " ";
+    }
+    &:focus{
+      outline: none;
+    }
+    &:after {
+      content: '';
+    }
+    span {
+      margin-left: 5px;
+    }
+  }
+  .payment-option._active span.action-toggle:before{
+    content: "x";
+    font-weight: 700;
+    color: #b0181a;
+  }
+  .product-item-details {
+    .details-qty{
+      display: none;
+    }
+    .product-item {
+      min-height: inherit;
+      padding-bottom: 0;
     }
   }
 }
